@@ -1,0 +1,25 @@
+{
+  "name": "escher-test",
+  "version": "0.1.0",
+  "description": "Use webpack to run an escher development server",
+  "main": "src/main.js",
+  "repository": "github:escher/escher-test",
+  "scripts": {
+    "bundle": "./node_modules/webpack/bin/webpack.js",
+    "dev-server": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --color --progress"
+  },
+  "author": "Zachary King",
+  "license": "MIT",
+  "dependencies": {
+    "babel-core": "^6.4.5",
+    "babel-loader": "^6.2.1",
+    "babel-polyfill": "^6.3.14",
+    "babel-preset-es2015": "^6.3.13",
+    "css-loader": "^0.23.1",
+    "d3": "^3.5.12",
+    "escher-vis": "^1.4.0-beta.3",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.12",
+    "webpack-dev-server": "^1.14.1"
+  }
+}
