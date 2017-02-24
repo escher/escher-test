@@ -1,7 +1,7 @@
 import { Builder } from 'escher-vis'
 import * as d3 from 'd3'
 
-import 'escher-vis/css/src/builder.css'
+import 'escher-vis/css/dist/builder.css'
 import './writ.css'
 
 // Load a JSON file for the map from the network
