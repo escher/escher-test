@@ -1,7 +1,4 @@
-// import multipleMaps from './multiple_maps'
-
-// multipleMaps()
-
-import singleMap from './single_map'
-
-singleMap()
+// import draw from './multiple_maps'
+// import draw from './single_map'
+import draw from './reaction_shapes'
+draw()

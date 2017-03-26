@@ -16,7 +16,7 @@ function log (e) {
   console.log(e)
 }
 
-export default function singleMap () {
+export default function draw () {
 
   // Load a JSON file for the map from the network
   Promise.all([

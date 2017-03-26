@@ -4,7 +4,7 @@ import * as d3 from 'd3'
 import 'escher-vis/css/dist/builder.css'
 import './writ.css'
 
-export default function multipleMaps () {
+export default function draw () {
 
   // Load a JSON file for the map from the network
   d3.json('/static/e_coli_core.Core metabolism.json', function(e, data) {
@@ -99,11 +99,10 @@ export default function multipleMaps () {
     }
 
     // set a callback to run when the Builder is ready
-    var first_load_callback = function() {
+    var first_load_callback = function () {
       // Get a nice starting location for the reaction
       var size = this.zoom_container.get_size()
-      var start_coords = { x: 100,
-                           y: -80 }
+      var start_coords = { x: 100, y: -80 }
       var start_direction = 90
 
       // Draw the reaction
