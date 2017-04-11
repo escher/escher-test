@@ -24,12 +24,9 @@ export default function draw () {
     getJSON('/static/reaction_data_iJO1366.json'),
     getJSON('/static/iJO1366.json'),
   ]).then(([ data, reaction_data, model, ]) => {
-    // ---------------------------------------
-    // First map: Just show the map
-    // ---------------------------------------
 
     var options1 = {
-      /* just show the zoom buttons */
+      // show all buttons
       menu: 'all',
       // use the smooth pan and zoom option
       use_3d_transform: true,
@@ -41,9 +38,10 @@ export default function draw () {
       fill_screen: true,
       never_ask_before_quit: true,
       show_gene_reaction_rules: true,
-      full_screen_button: true,
+      full_screen_button: true
     }
 
     Builder(data, model, null, d3.select('body'), options1)
-  }, log)// .catch(log)
+
+  }, log)
 }

@@ -1,4 +1,5 @@
 import { Builder } from 'escher-vis'
+import escher from 'escher-vis'
 import * as d3 from 'd3'
 
 import 'escher-vis/css/dist/builder.css'
@@ -35,7 +36,7 @@ const first_load_callback = function () {
   draw('XYLabcpp', { x: -200, y: -200 }, -135)
   draw('THZPSN3', { x: 600, y: 200 }, 45)
   draw('PPA2', { x: -200, y: 200 }, 135)
-  this.map.new_reaction_from_scratch('Ec_biomass_iJO1366_WT_53p95M',
+  this.map.new_reaction_from_scratch('EX_glc__D_e',
                                      { x: 0, y: 1300 }, 90)
 
   // And zoom the map to focus on that reaction
@@ -70,18 +71,24 @@ export default function draw () {
       show_gene_reaction_rules: false,
       full_screen_button: true,
       first_load_callback,
-      reaction_data: { PPS: 20, THZPSN3: 20 },
+      reaction_data: { PPS: 20, PPA: 20, NADTRHD: 20, THZPSN3: 30 },
       metabolite_data: { atp_c: 20 },
-      // reaction_no_data_size: 25,
-      // metabolite_no_data_size: 25,
+      reaction_no_data_size: 25,
+      metabolite_no_data_size: 25,
       canvas_size_and_loc: {
         x: -4500,
         y: -1000,
         width: 9000,
         height: 3500
-      }
+      },
+      reaction_scale: [{ type: 'min', color: '#c8c8c8', size: 12 },
+                       { type: 'Q1', color: '#9696ff', size: 20 },
+                       { type: 'median', color: '#9696ff', size: 20 },
+                       { type: 'Q3', color: '#9696ff', size: 20 },
+                       { type: 'max', color: '#ff0000', size: 25 }],
     }
 
-    Builder(null, model, null, d3.select('body'), options1)
+    // Builder(null, model, null, document.getElementsByTagName('body')[0], options1)
+    Builder(null, model, null, escher.libs.d3_select('body'), options1)
   }, log)// .catch(log)
 }
