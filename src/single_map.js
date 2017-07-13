@@ -24,7 +24,16 @@ function onLoad (sel) {
       const par = sel.select('.zoom-g')
       const g = par.insert('g', '#reactions')
       g.attr('transform', 'scale(10)')
-      g.node().appendChild(xml.documentElement.children[0])
+      // g.node().appendChild(xml.documentElement.children[0])
+      g.append('rect')
+        .attr('x', '-0.674')
+        .attr('y', '0.828')
+        .attr('fill', '#BF2026')
+        .attr('width', '530.674')
+        .attr('height', '611.172')
+      g.append('path')
+        .attr('fill', '#FFFFFF')
+        .attr('d', 'M193.188,556.254c25.174,2.602,55.981,2.316,55.981,2.316l55.818-4.535l48.087-40.139l33.069-83.063 l43.558-142.927l34.951-125.057l-11.178-61.622l-20.261-29.471L229.57,42.508l-24.092-1.221l-48.854,26.77L62.115,405.25 l97.99,140.867L193.188,556.254z')
     })
 }
 
