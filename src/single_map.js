@@ -16,6 +16,18 @@ function log (e) {
   console.log(e)
 }
 
+function onLoad (sel) {
+  d3.xml('/static/membrane.svg')
+    .mimeType('image/svg+xml')
+    .get(function(error, xml) {
+      if (error) throw error
+      const par = sel.select('.zoom-g')
+      const g = par.insert('g', '#reactions')
+      g.attr('transform', 'scale(10)')
+      g.node().appendChild(xml.documentElement.children[0])
+    })
+}
+
 export default function draw () {
 
   // Load a JSON file for the map from the network
@@ -27,6 +39,8 @@ export default function draw () {
     // ---------------------------------------
     // First map: Just show the map
     // ---------------------------------------
+
+    const sel = d3.select('body')
 
     var options1 = {
       /* just show the zoom buttons */
@@ -42,8 +56,9 @@ export default function draw () {
       never_ask_before_quit: true,
       show_gene_reaction_rules: true,
       full_screen_button: true,
+      first_load_callback: () => onLoad(sel),
     }
 
-    Builder(data, model, null, d3.select('body'), options1)
+    Builder(data, model, null, sel, options1)
   }, log)// .catch(log)
 }
