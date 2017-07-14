@@ -34,7 +34,8 @@ function onLoad (sel) {
       g.append('path')
         .attr('fill', '#FFFFFF')
         .attr('d', 'M193.188,556.254c25.174,2.602,55.981,2.316,55.981,2.316l55.818-4.535l48.087-40.139l33.069-83.063 l43.558-142.927l34.951-125.057l-11.178-61.622l-20.261-29.471L229.57,42.508l-24.092-1.221l-48.854,26.77L62.115,405.25 l97.99,140.867L193.188,556.254z')
-      sel.select('.escher-container').style('background-color', '#BF2026')
+      sel.style('background-color', '#BF2026')
+      sel.select('.canvas-group').remove()
     })
 }
 
