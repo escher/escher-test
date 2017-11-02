@@ -1,25 +1,25 @@
-const path = require('path')
-
 module.exports = {
-  entry: [ 'babel-polyfill', './src/main.js' ],
-  output: {
-    path: __dirname,
-    filename: 'bundle.js'
+  resolve: {
+    extensions: ['.js', '.jsx', '.json']
   },
-  resolve: { fallback: path.join(__dirname, "node_modules") },
-  resolveLoader: { fallback: path.join(__dirname, "node_modules") },
+  entry: [ 'babel-polyfill', './src/main.js' ],
+  output:'bundle.js',
   devtool: 'source-map',
   module: {
     loaders: [
       {
         test: /\.css$/,
-        loader: "style-loader!css-loader"
+        use: ['style-loader', 'css-loader']
       },
       {
-        loader: 'babel',
-        test: /\.js$/,
+        loader: 'babel-loader',
+        test: /\.jsx?$/,
         exclude: /node_modules/
       }
     ]
+  },
+  devServer: {
+    open: true,
+    port: 7622
   }
 };

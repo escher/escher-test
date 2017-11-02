@@ -5,8 +5,8 @@
   "main": "src/main.js",
   "repository": "github:escher/escher-test",
   "scripts": {
-    "bundle": "./node_modules/webpack/bin/webpack.js",
-    "dev-server": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js --hot --inline --color --progress"
+    "build": "./node_modules/.bin/webpack",
+    "start": "./node_modules/.bin/webpack-dev-server --hot --inline --color --progress"
   },
   "author": "Zachary King",
   "license": "MIT",
@@ -19,7 +19,7 @@
     "d3": "^3.5.12",
     "escher-vis": "^1.4.0-beta.3",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.12",
-    "webpack-dev-server": "^1.14.1"
+    "webpack": "^3.8.1",
+    "webpack-dev-server": "^2.9.4"
   }
 }
