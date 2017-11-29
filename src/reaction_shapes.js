@@ -1,7 +1,5 @@
-import { Builder } from 'escher-vis'
+import Builder from 'escher-vis'
 import * as d3 from 'd3'
-
-import 'escher-vis/css/dist/builder.css'
 
 function getJSON (url) {
   return new Promise(function (fulfill, reject) {
@@ -39,7 +37,7 @@ const first_load_callback = function () {
                                      { x: 0, y: 1300 }, 90)
 
   // And zoom the map to focus on that reaction
-  this.map.zoom_extent_nodes()
+  this.map.zoom_extent_canvas()
 
   // After building a reaction, Escher selects the newest
   // metabolite. Unselect it like this.
@@ -82,6 +80,6 @@ export default function draw () {
       }
     }
 
-    Builder(null, model, null, d3.select('body'), options1)
+    Builder(null, model, null, d3.select('body').append('div'), options1)
   }, log)// .catch(log)
 }
