@@ -1,11 +1,12 @@
-import Builder from 'escher-vis'
-import * as d3 from 'd3'
+import Builder, { libs } from 'escher'
+const d3Json = libs.d3_json
+const d3Select = libs.d3_select
 
 function getJSON (url) {
-  return new Promise(function (fulfill, reject) {
-    d3.json(url, (e, d) => {
-      if (e) reject (e)
-      else fulfill(d)
+  return new Promise(function (resolve, reject) {
+    d3Json(url, (e, d) => {
+      if (e) reject(e)
+      else resolve(d)
     })
   })
 }
@@ -14,15 +15,12 @@ function log (e) {
   console.log(e)
 }
 
-const first_load_callback = function () {
-  // Get a nice starting location for the reaction
-  const size = this.zoom_container.get_size()
-
+const first_load_callback = function (builder) {
   // Draw the reaction
   const draw = (bigg_id, loc, rot) => {
-    this.map.new_reaction_from_scratch(bigg_id, loc, rot)
-    this.map.new_reaction_for_metabolite(
-      bigg_id, Object.keys(this.map.get_selected_nodes())[0], rot
+    builder.map.new_reaction_from_scratch(bigg_id, loc, rot)
+    builder.map.new_reaction_for_metabolite(
+      bigg_id, Object.keys(builder.map.get_selected_nodes())[0], rot
     )
   }
   draw('ENO', { x: 0, y: 200 }, 90)
@@ -33,15 +31,15 @@ const first_load_callback = function () {
   draw('XYLabcpp', { x: -200, y: -200 }, -135)
   draw('THZPSN3', { x: 600, y: 200 }, 45)
   draw('PPA2', { x: -200, y: 200 }, 135)
-  this.map.new_reaction_from_scratch('Ec_biomass_iJO1366_WT_53p95M',
-                                     { x: 0, y: 1300 }, 90)
+  builder.map.new_reaction_from_scratch('Ec_biomass_iJO1366_WT_53p95M',
+                                        { x: 0, y: 1300 }, 90)
 
   // And zoom the map to focus on that reaction
-  this.map.zoom_extent_canvas()
+  builder.map.zoom_extent_canvas()
 
   // After building a reaction, Escher selects the newest
   // metabolite. Unselect it like this.
-  this.map.select_none()
+  builder.map.select_none()
 }
 
 export default function draw () {
@@ -80,6 +78,6 @@ export default function draw () {
       }
     }
 
-    Builder(null, model, null, d3.select('body').append('div'), options1)
+    Builder(null, model, null, d3Select('body').append('div'), options1)
   }, log)// .catch(log)
 }
