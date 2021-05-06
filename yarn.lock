@@ -1202,9 +1202,10 @@ d3-array@^1.2.0:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/d3-array/-/d3-array-1.2.1.tgz#d1ca33de2f6ac31efadb8e050a021d7e2396d5dc"
 
-"d3-brush@git+https://github.com/zakandrewking/d3-brush.git":
+"d3-brush@https://github.com/zakandrewking/d3-brush.git":
   version "1.0.4"
-  resolved "git+https://github.com/zakandrewking/d3-brush.git#0def381d33b6de58383c6f8df68f042b690df416"
+  uid "0def381d33b6de58383c6f8df68f042b690df416"
+  resolved "https://github.com/zakandrewking/d3-brush.git#0def381d33b6de58383c6f8df68f042b690df416"
   dependencies:
     d3-dispatch "1"
     d3-drag "1"
@@ -4107,8 +4108,8 @@ uid-number@^0.0.6:
   resolved "https://registry.yarnpkg.com/uid-number/-/uid-number-0.0.6.tgz#0ea10e8035e8eb5b8e4449f06da1c730663baa81"
 
 underscore@^1.8.3:
-  version "1.8.3"
-  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.8.3.tgz#4f3fb53b106e6097fcf9cb4109f2a5e9bdfa5022"
+  version "1.13.1"
+  resolved "https://registry.yarnpkg.com/underscore/-/underscore-1.13.1.tgz#0c1c6bd2df54b6b69f2314066d65b6cde6fcf9d1"
 
 uniq@^1.0.1:
   version "1.0.1"
